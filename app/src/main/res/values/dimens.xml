@@ -1,0 +1,17 @@
+<resources>
+
+    <dimen name="text_navbar_title">18sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin_small">8dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_menu_subtitle">12sp</dimen>
+    <dimen name="text_menu_title">19sp</dimen>
+    <dimen name="text_menu_bottom">3dp</dimen>
+    <dimen name="text_menu_smalltitle">10sp</dimen>
+    <dimen name="text_list_small">12sp</dimen>
+    <dimen name="component_bottom_small">2dp</dimen>
+    <dimen name="text_list_big">20sp</dimen>
+    <dimen name="text_list_extrasmall">10sp</dimen>
+    <dimen name="component_bottom_medium">8dp</dimen>
+
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">President</string>
+    <string name="app_name_main">Directory of President</string>
+    <string name="view_design_list">View Design List</string>
+    <string name="list_style">List Style</string>
+    <string name="grid_style">Grid Style</string>
+    <string name="view_design_grid">View Design Grid</string>
+    <string name="copyright_aldiee">© Copyright 2017 Am</string>
+    <string name="app_name_grid">Grid of President</string>
+    <string name="app_name_list">List of President</string>
+    <string name="president_of">President of</string>
+    <string name="president_name">Naure Kaori</string>
+    <string name="presiden_birth">May 19, 1997</string>
+    <string name="rate">2/5</string>
+</resources>
