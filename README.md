@@ -10,19 +10,19 @@
 ```
 
 # Design Interfaces
-> Simple and clean design for your app build from scratch with Photoshop
+Simple and clean design for your app build from scratch with Photoshop
 
-> Menu Style 
+1. Menu Style 
 
 ![](https://i.imgur.com/yrQkVD2.png)
 
 
-> Grid Style 
+2. Grid Style 
 
 ![](https://i.imgur.com/wR5m09T.png)
 
 
-> List Style 
+3. List Style 
 
 ![](https://i.imgur.com/4iy2L9l.png)
 
