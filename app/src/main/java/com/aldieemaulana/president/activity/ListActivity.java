@@ -156,7 +156,7 @@ public class ListActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Log.i("aldieemaulana", "aldieemaulana action: exit");
+        super.onBackPressed();
     }
 
 }

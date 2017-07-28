@@ -1,15 +1,19 @@
 package com.aldieemaulana.president.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aldieemaulana.president.App;
 import com.aldieemaulana.president.R;
+import com.aldieemaulana.president.activity.DetailActivity;
 import com.aldieemaulana.president.model.President;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.MemoryPolicy;
@@ -34,17 +38,47 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         public TextView countryName, presidentName, birthDate, rate;
         public CircularImageView photo, flag;
+        public RelativeLayout layout;
 
         public ViewHolder(View view) {
             super(view);
+
+            layout = (RelativeLayout) view.findViewById(R.id.layout);
             countryName = (TextView) view.findViewById(R.id.country_name);
             presidentName = (TextView) view.findViewById(R.id.president_name);
             birthDate = (TextView) view.findViewById(R.id.birth_of_date);
             rate = (TextView) view.findViewById(R.id.rate);
             photo = (CircularImageView) view.findViewById(R.id.president);
             flag = (CircularImageView) view.findViewById(R.id.country);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                loadIntet(getAdapterPosition());
+                }
+            });
+
+            layout.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    loadIntet(getAdapterPosition());
+                }
+            });
         }
 
+    }
+
+    private void loadIntet(int position) {
+        Intent intent;
+        intent = new Intent(context, DetailActivity.class);
+
+        President president = presidentList.get(position);
+        intent.putExtra("id", president.getId());
+        intent.putExtra("name", president.getName());
+        intent.putExtra("birth", president.getBirthOfDate());
+        intent.putExtra("description", president.getDescription());
+        intent.putExtra("period", president.getPeriod());
+        intent.putExtra("photo", president.getPhoto());
+
+        context.startActivity(intent);
     }
 
     public ListAdapter(Context context, List<President> presidentList) {

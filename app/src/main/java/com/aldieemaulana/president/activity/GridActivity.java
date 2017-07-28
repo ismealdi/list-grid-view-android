@@ -116,25 +116,28 @@ public class GridActivity extends AppCompatActivity {
                     presidentList.addAll(response.body().getPresident());
                     presidentGridAdapter.notifyDataSetChanged();
 
+                    if(!response.body().getTotal().equals(0)){
 
-                    recyclerView.getViewTreeObserver().addOnPreDrawListener(
-                            new ViewTreeObserver.OnPreDrawListener() {
-                                @Override
-                                public boolean onPreDraw() {
-                                    recyclerView.getViewTreeObserver().removeOnPreDrawListener(this);
+                        recyclerView.getViewTreeObserver().addOnPreDrawListener(
+                                new ViewTreeObserver.OnPreDrawListener() {
+                                    @Override
+                                    public boolean onPreDraw() {
+                                        recyclerView.getViewTreeObserver().removeOnPreDrawListener(this);
 
-                                    for (int i = 0; i < recyclerView.getChildCount(); i++) {
-                                        View v = recyclerView.getChildAt(i);
-                                        v.setAlpha(0.0f);
-                                        v.animate().alpha(1.0f)
-                                                .setDuration(300)
-                                                .setStartDelay(i * 50)
-                                                .start();
+                                        for (int i = 0; i < recyclerView.getChildCount(); i++) {
+                                            View v = recyclerView.getChildAt(i);
+                                            v.setAlpha(0.0f);
+                                            v.animate().alpha(1.0f)
+                                                    .setDuration(300)
+                                                    .setStartDelay(i * 50)
+                                                    .start();
+                                        }
+
+                                        return true;
                                     }
+                                });
 
-                                    return true;
-                                }
-                            });
+                    }
                 }
 
                 Log.i("aldieemaulana", "aldieemaulana result: " + response.body().getTotal());
@@ -151,16 +154,6 @@ public class GridActivity extends AppCompatActivity {
                 swipeContainer.setRefreshing(false);
             }
         });
-    }
-
-    @OnClick(R.id.buttonLeft)
-    protected void backToMain(View view) {
-        super.onBackPressed();
-    }
-
-    @Override
-    public void onBackPressed() {
-        Log.i("aldieemaulana", "aldieemaulana action: exit");
     }
 
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
@@ -201,6 +194,16 @@ public class GridActivity extends AppCompatActivity {
     private int dpToPx(int dp) {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
+    }
+
+    @OnClick(R.id.buttonLeft)
+    protected void backToMain(View view) {
+        super.onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
 }
