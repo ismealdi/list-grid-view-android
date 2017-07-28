@@ -112,12 +112,17 @@ public class ListActivity extends AppCompatActivity {
                     presidentListAdapter.notifyDataSetChanged();
                 }
 
+                Log.i("aldieemaulana", "aldieemaulana result: " + response.body().getTotal());
+
                 swipeContainer.setRefreshing(false);
             }
 
             @Override
             public void onFailure(Call<PresidentResponse> call, Throwable t) {
                 presidentListAdapter.notifyDataSetChanged();
+
+                Log.i("aldieemaulana", "aldieemaulana error: " + t.getMessage());
+
                 swipeContainer.setRefreshing(false);
             }
         });

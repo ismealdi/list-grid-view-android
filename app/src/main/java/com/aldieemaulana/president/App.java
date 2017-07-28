@@ -10,8 +10,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class App extends Application {
 
-    public static String API = "http://127.0.0.1/presidents/api/v1/";
-    public static String URL = "http://rest.aldieemaulana.com/";
+    public static String API = "http://172.20.10.3/president/api/v1/";
+    public static String URL = "http://172.20.10.3/president/";
 
     @Override
     public void onCreate() {
@@ -22,24 +22,6 @@ public class App extends Application {
             .setFontAttrId(R.attr.fontPath)
             .build()
         );
-    }
-
-    public static String toTitleCase(String input) {
-        StringBuilder titleCase = new StringBuilder();
-        boolean nextTitleCase = true;
-
-        for (char c : input.toCharArray()) {
-            if (Character.isSpaceChar(c)) {
-                nextTitleCase = true;
-            } else if (nextTitleCase) {
-                c = Character.toTitleCase(c);
-                nextTitleCase = false;
-            }
-
-            titleCase.append(c);
-        }
-
-        return titleCase.toString();
     }
 
 

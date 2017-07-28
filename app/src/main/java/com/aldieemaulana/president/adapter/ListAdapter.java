@@ -13,7 +13,11 @@ import com.aldieemaulana.president.R;
 import com.aldieemaulana.president.model.President;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by aldieemaulana on 7/28/17.
@@ -56,7 +60,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void onBindViewHolder(final ViewHolder holder, int position) {
         President president = presidentList.get(position);
         holder.presidentName.setText(president.getName());
-        holder.countryName.setText(R.string.president_of);
+        holder.countryName.setText(R.string.president_of + " " + president.getCountry());
+        holder.birthDate.setText(changetToBirth(president.getBirthOfDate()));
 
     }
 
@@ -64,5 +69,36 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public int getItemCount() {
         return presidentList.size();
     }
+
+    public void clear() {
+        presidentList.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<President> list) {
+        presidentList.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    public void add(President president) {
+        presidentList.add(president);
+        notifyDataSetChanged();
+    }
+
+    protected String changetToBirth(String s) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatterNew = new SimpleDateFormat("MMMM d, yyyy", Locale.US);
+
+        try {
+            Date date = formatter.parse(s);
+            return formatterNew.format(date);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+            return s;
+        }
+    }
+
 
 }
