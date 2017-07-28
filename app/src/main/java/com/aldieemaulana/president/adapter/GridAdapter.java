@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.aldieemaulana.president.App;
@@ -25,7 +24,7 @@ import java.util.Locale;
  * Created by aldieemaulana on 7/28/17.
  */
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
 
     private Context context;
     private List<President> presidentList;
@@ -47,14 +46,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     }
 
-    public ListAdapter(Context context, List<President> presidentList) {
+    public GridAdapter(Context context, List<President> presidentList) {
         this.context = context;
         this.presidentList = presidentList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_style, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_style, parent, false);
         return new ViewHolder(view);
     }
 

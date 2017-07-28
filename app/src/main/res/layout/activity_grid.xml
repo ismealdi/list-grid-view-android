@@ -52,6 +52,21 @@
         android:orientation="vertical"
         android:layout_below="@id/appBar">
 
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="0dp"
+                android:clipToPadding="false"
+                android:scrollbars="none" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
 
     </LinearLayout>
 

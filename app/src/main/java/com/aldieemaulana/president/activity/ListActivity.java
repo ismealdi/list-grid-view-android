@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.aldieemaulana.president.App;
@@ -41,7 +42,7 @@ public class ListActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.title) TextView title;
     @BindView(R.id.swipeContainer) SwipeRefreshLayout swipeContainer;
-    @BindView(R.id.recylerView) RecyclerView recylerView;
+    @BindView(R.id.recyclerView) RecyclerView recyclerView;
 
     private List<President> presidentList;
     private ListAdapter presidentListAdapter;
@@ -72,11 +73,11 @@ public class ListActivity extends AppCompatActivity {
 
         presidentList = new ArrayList<>();
         presidentListAdapter = new ListAdapter(this, presidentList);
-        recylerView.setLayoutManager(layoutManager);
-        recylerView.setNestedScrollingEnabled(false);
-        recylerView.setHorizontalScrollBarEnabled(true);
-        recylerView.setItemAnimator(new DefaultItemAnimator());
-        recylerView.setAdapter(presidentListAdapter);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setHorizontalScrollBarEnabled(true);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(presidentListAdapter);
     }
 
     private void getPresident() {
@@ -110,6 +111,26 @@ public class ListActivity extends AppCompatActivity {
                     presidentList.clear();
                     presidentList.addAll(response.body().getPresident());
                     presidentListAdapter.notifyDataSetChanged();
+
+
+                    recyclerView.getViewTreeObserver().addOnPreDrawListener(
+                            new ViewTreeObserver.OnPreDrawListener() {
+                                @Override
+                                public boolean onPreDraw() {
+                                    recyclerView.getViewTreeObserver().removeOnPreDrawListener(this);
+
+                                    for (int i = 0; i < recyclerView.getChildCount(); i++) {
+                                        View v = recyclerView.getChildAt(i);
+                                        v.setAlpha(0.0f);
+                                        v.animate().alpha(1.0f)
+                                                .setDuration(300)
+                                                .setStartDelay(i * 50)
+                                                .start();
+                                    }
+
+                                    return true;
+                                }
+                            });
                 }
 
                 Log.i("aldieemaulana", "aldieemaulana result: " + response.body().getTotal());
