@@ -10,7 +10,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class App extends Application {
 
-    public static String API = "http://rest.aldieemaulana.com/api/v1/";
+    public static String API = "http://127.0.0.1/presidents/api/v1/";
     public static String URL = "http://rest.aldieemaulana.com/";
 
     @Override

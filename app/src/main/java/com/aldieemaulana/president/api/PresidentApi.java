@@ -10,7 +10,7 @@ import retrofit2.http.Headers;
  * Created by aldieemaulana on 7/28/17.
  */
 
-public interface President {
+public interface PresidentApi {
 
     @GET("presidents")
     @Headers({"Content-Type: application/json"})
