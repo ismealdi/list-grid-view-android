@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/activity_horizontal_margin_small">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="180dp"
         android:orientation="vertical"
         android:gravity="bottom">
 
@@ -15,7 +16,7 @@
             android:id="@+id/layout"
             android:gravity="bottom"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:background="@drawable/button_menu"
             android:paddingLeft="@dimen/activity_horizontal_margin_small"
@@ -25,7 +26,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="88dp"
+                android:paddingTop="122dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -35,7 +36,7 @@
                     android:layout_gravity="center"
                     android:text="@string/president_name"
                     android:textColor="@color/colorTextPrimary"
-                    android:textSize="@dimen/text_list_big"
+                    android:textSize="@dimen/text_menu_sub"
                     android:layout_marginBottom="@dimen/component_bottom_small"
                     fontPath="fonts/latoRegular.ttf"
                     tools:ignore="MissingPrefix" />
@@ -47,62 +48,28 @@
                     android:layout_gravity="center"
                     android:text="@string/president_of"
                     android:textColor="@color/colorTextPrimary"
-                    android:textSize="@dimen/text_list_small"
+                    android:textSize="@dimen/text_menu_subtitle"
                     android:layout_marginBottom="@dimen/component_bottom_small"
                     fontPath="fonts/latoLight.ttf"
                     tools:ignore="MissingPrefix" />
 
-                <TextView
-                    android:id="@+id/birth_of_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/presiden_birth"
-                    android:layout_marginTop="@dimen/component_bottom_medium"
-                    android:textColor="@color/colorTextPrimary"
-                    android:textSize="@dimen/text_list_extrasmall"
-                    fontPath="fonts/latoLight.ttf"
-                    tools:ignore="MissingPrefix" />
             </LinearLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="-10dp"
-            android:layout_width="98dp"
-            android:layout_height="98dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
             android:layout_centerHorizontal="true"
             android:gravity="top">
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/president"
-                android:layout_width="88dp"
-                android:layout_height="88dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="10dp"
                 app:civ_border="false"
                 android:src="@drawable/x"/>
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/country"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                app:civ_border="false"
-                android:src="@drawable/indonesia"/>
-            <TextView
-                android:id="@+id/rate"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginBottom="@dimen/component_bottom_medium"
-                android:gravity="center"
-                android:text="@string/rate"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_list_small"
-                fontPath="fonts/latoRegular.ttf"
-                tools:ignore="MissingPrefix"
-                android:background="@drawable/cirlce_yellow"/>
         </RelativeLayout>
 
 

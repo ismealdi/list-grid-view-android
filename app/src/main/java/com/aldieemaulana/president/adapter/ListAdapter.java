@@ -73,9 +73,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         President president = presidentList.get(position);
         intent.putExtra("id", president.getId());
         intent.putExtra("name", president.getName());
-        intent.putExtra("birth", president.getBirthOfDate());
+        intent.putExtra("country", president.getCountry());
+        intent.putExtra("birth", changetToBirth(president.getBirthOfDate()));
         intent.putExtra("description", president.getDescription());
-        intent.putExtra("period", president.getPeriod());
+        intent.putExtra("period", changetToBirth(president.getPeriod()));
         intent.putExtra("photo", president.getPhoto());
 
         context.startActivity(intent);
@@ -99,7 +100,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         holder.countryName.setText(context.getResources().getString(R.string.president_of) + " " + president.getCountry());
         holder.birthDate.setText(changetToBirth(president.getBirthOfDate()));
 
-        Picasso.with(context).load(App.URL + "files/photos/" + president.getPhoto()).memoryPolicy(MemoryPolicy.NO_CACHE).into(holder.photo);
+        Picasso.with(context).load(App.URL + "files/photos/" + president.getPhoto()).into(holder.photo);
         Picasso.with(context).load(App.URL + "files/flags/" + president.getPhoto()).into(holder.flag);
 
     }

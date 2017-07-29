@@ -13,5 +13,10 @@
     <dimen name="text_list_big">20sp</dimen>
     <dimen name="text_list_extrasmall">10sp</dimen>
     <dimen name="component_bottom_medium">8dp</dimen>
+    <dimen name="detail_title">18sp</dimen>
+    <dimen name="detail_sub">11sp</dimen>
+    <dimen name="activity_horizontal_margin_small_extra">4dp</dimen>
+    <dimen name="vote_height">140dp</dimen>
+    <dimen name="text_menu_sub">14sp</dimen>
 
 </resources>

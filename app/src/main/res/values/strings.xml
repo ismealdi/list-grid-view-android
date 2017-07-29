@@ -12,4 +12,17 @@
     <string name="president_name">Naure Kaori</string>
     <string name="presiden_birth">May 19, 1997</string>
     <string name="rate">2/5</string>
+    <string name="app_name_detail">Detail of President</string>
+    <string name="about">About, President of</string>
+    <string name="description">Assuming you are finishing the login screen when the user logs in and home is created and afterwards all the screens from 1 to 5 on top of that one. The code i posted will return you to home screen finishing all the other activites. You can add an extra in the from there or something).</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="two_dot">:</string>
+    <string name="periode">Presidential term</string>
+    <string name="dua">2</string>
+    <string name="leadership">Leadership</string>
+    <string name="vote">Vote</string>
+    <string name="firmness">Firmness</string>
+    <string name="decision">Decision</string>
+    <string name="releated">Releated President</string>
+    <string name="submit">Submit</string>
 </resources>

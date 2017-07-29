@@ -3,7 +3,6 @@ package com.aldieemaulana.president.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,6 @@ import com.aldieemaulana.president.R;
 import com.aldieemaulana.president.activity.DetailActivity;
 import com.aldieemaulana.president.model.President;
 import com.mikhaellopez.circularimageview.CircularImageView;
-import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
@@ -28,15 +26,15 @@ import java.util.Locale;
  * Created by aldieemaulana on 7/28/17.
  */
 
-public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
+public class ReleatedAdapter extends RecyclerView.Adapter<ReleatedAdapter.ViewHolder> {
 
     private Context context;
     private List<President> presidentList;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView countryName, presidentName, birthDate, rate;
-        public CircularImageView photo, flag;
+        public TextView countryName, presidentName;
+        public CircularImageView photo;
         public RelativeLayout layout;
 
         public ViewHolder(View view) {
@@ -45,20 +43,12 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
             layout = (RelativeLayout) view.findViewById(R.id.layout);
             countryName = (TextView) view.findViewById(R.id.country_name);
             presidentName = (TextView) view.findViewById(R.id.president_name);
-            birthDate = (TextView) view.findViewById(R.id.birth_of_date);
-            rate = (TextView) view.findViewById(R.id.rate);
             photo = (CircularImageView) view.findViewById(R.id.president);
-            flag = (CircularImageView) view.findViewById(R.id.country);
-
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                    loadIntet(getAdapterPosition());
-                }
-            });
 
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
                     loadIntet(getAdapterPosition());
+
                 }
             });
         }
@@ -77,18 +67,19 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         intent.putExtra("description", president.getDescription());
         intent.putExtra("period", changetToBirth(president.getPeriod()));
         intent.putExtra("photo", president.getPhoto());
-
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(intent);
+
     }
 
-    public GridAdapter(Context context, List<President> presidentList) {
+    public ReleatedAdapter(Context context, List<President> presidentList) {
         this.context = context;
         this.presidentList = presidentList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_style, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.releated_style, parent, false);
         return new ViewHolder(view);
     }
 
@@ -97,10 +88,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         President president = presidentList.get(position);
         holder.presidentName.setText(president.getName());
         holder.countryName.setText(context.getResources().getString(R.string.president_of) + " " + president.getCountry());
-        holder.birthDate.setText(changetToBirth(president.getBirthOfDate()));
-
         Picasso.with(context).load(App.URL + "files/photos/" + president.getPhoto()).into(holder.photo);
-        Picasso.with(context).load(App.URL + "files/flags/" + president.getPhoto()).into(holder.flag);
 
     }
 
