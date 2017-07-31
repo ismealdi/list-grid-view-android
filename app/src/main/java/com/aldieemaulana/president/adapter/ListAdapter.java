@@ -72,6 +72,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         President president = presidentList.get(position);
         intent.putExtra("id", president.getId());
+        intent.putExtra("in", "ls");
         intent.putExtra("name", president.getName());
         intent.putExtra("country", president.getCountry());
         intent.putExtra("birth", changetToBirth(president.getBirthOfDate()));

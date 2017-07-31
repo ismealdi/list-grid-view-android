@@ -106,6 +106,8 @@ public class DetailActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(presidentListAdapter);
 
+        nestedListview.smoothScrollTo(0,0);
+
     }
 
     private void getPresident() {
@@ -234,14 +236,20 @@ public class DetailActivity extends AppCompatActivity {
     @OnClick(R.id.buttonLeft)
     protected void backToMain(View view) {
         super.onBackPressed();
+        Intent intent;
 
+        if(data.getStringExtra("in").equals("gr")){
+             intent = new Intent(DetailActivity.this, GridActivity.class);
+        }else{
+            intent = new Intent(DetailActivity.this, ListActivity.class);
+        }
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(DetailActivity.this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
+        super.onBackPressed();
     }
 }

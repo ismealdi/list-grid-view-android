@@ -71,6 +71,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
 
         President president = presidentList.get(position);
         intent.putExtra("id", president.getId());
+        intent.putExtra("in", "gr");
         intent.putExtra("name", president.getName());
         intent.putExtra("country", president.getCountry());
         intent.putExtra("birth", changetToBirth(president.getBirthOfDate()));

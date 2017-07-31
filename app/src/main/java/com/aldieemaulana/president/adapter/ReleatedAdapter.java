@@ -1,5 +1,6 @@
 package com.aldieemaulana.president.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -58,16 +59,17 @@ public class ReleatedAdapter extends RecyclerView.Adapter<ReleatedAdapter.ViewHo
     private void loadIntet(int position) {
         Intent intent;
         intent = new Intent(context, DetailActivity.class);
-
+        Intent data = ((Activity) context).getIntent();
         President president = presidentList.get(position);
         intent.putExtra("id", president.getId());
+        intent.putExtra("in", data.getStringExtra("in"));
         intent.putExtra("name", president.getName());
         intent.putExtra("country", president.getCountry());
         intent.putExtra("birth", changetToBirth(president.getBirthOfDate()));
         intent.putExtra("description", president.getDescription());
         intent.putExtra("period", changetToBirth(president.getPeriod()));
         intent.putExtra("photo", president.getPhoto());
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(intent);
 
     }
