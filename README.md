@@ -1,4 +1,4 @@
-# President List and Grid
+# List and Grid
 > Show your view in List or Grid mode in Android
 
 ```
